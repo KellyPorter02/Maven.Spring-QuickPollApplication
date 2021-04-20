@@ -52,7 +52,7 @@ public class PollController {
     @RequestMapping(value = "/polls/{pollId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updatePoll(@RequestBody Poll newPollData, @PathVariable Long pollId) {
         Poll pollToUpdate = pollRepository.save(newPollData);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpSt atus.OK);
     }
 
     // http://localhost:8080/polls/2   ** deletes poll 2 if exists

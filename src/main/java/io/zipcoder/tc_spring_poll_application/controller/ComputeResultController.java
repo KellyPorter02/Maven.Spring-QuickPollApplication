@@ -28,21 +28,24 @@ public class ComputeResultController {
         VoteResult voteResult = new VoteResult();
         Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
         // Algorithm to count votes
+        // a vote has and ID & and option, a poll option has an ID and it's value
+        // like option id1, value "Black Mirror"
+        //
         int totalVotes = 0;
-        Map<Long, OptionCount> tempMap = new HashMap<Long, OptionCount>();
-        for(Vote v : allVotes) {
-            totalVotes ++;
-            // Get the OptionCount corresponding to this Option
-            OptionCount optionCount = tempMap.get(v.getOption().getId());
-            if(optionCount == null) {
+        Map<Long, OptionCount> tempMap = new HashMap<>();
+        for (Vote particularVoteInPoll: allVotes) {
+            totalVotes++;
+            OptionCount optionCount = tempMap.get(particularVoteInPoll.getOption().getId());
+            if (optionCount == null) {
                 optionCount = new OptionCount();
-                optionCount.setOptionId(v.getOption().getId());
-                tempMap.put(v.getOption().getId(), optionCount);
+                optionCount.setOptionId(particularVoteInPoll.getOption().getId());
+                tempMap.put(particularVoteInPoll.getOption().getId(), optionCount);
             }
-            optionCount.setCount(optionCount.getCount()+1);
+            optionCount.setCount(optionCount.getCount() + 1);
         }
         voteResult.setTotalVotes(totalVotes);
         voteResult.setResults(tempMap.values());
+
         return new ResponseEntity<VoteResult>(voteResult, HttpStatus.OK);
     }
 }
