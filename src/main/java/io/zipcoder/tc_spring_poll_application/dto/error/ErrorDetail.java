@@ -11,11 +11,14 @@ public class ErrorDetail {
     private int status;                 // HTTP status code for current request; redundant but useful for client-side error handling
     private String detail;              // short, human-readable description of the error that may be presented to user
     private long timeStamp;             // time in milliseconds when error occurred
+    private String path;
     private String developerMessage;    // detailed info such as exception class name or a stack trace useful for developers to debug
     private Map<String, List<ValidationError>> errors = new HashMap<String,
                 List<ValidationError>>();
 
+
     public ErrorDetail() {}
+
 
     public String getTitle() {
         return title;
@@ -55,6 +58,14 @@ public class ErrorDetail {
 
     public void setDeveloperMessage(String developerMessage) {
         this.developerMessage = developerMessage;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public Map<String, List<ValidationError>> getErrors() {
