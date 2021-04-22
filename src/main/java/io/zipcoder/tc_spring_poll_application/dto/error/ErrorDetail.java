@@ -13,7 +13,7 @@ public class ErrorDetail {
     private long timeStamp;             // time in milliseconds when error occurred
     private String path;
     private String developerMessage;    // detailed info such as exception class name or a stack trace useful for developers to debug
-    private Map<String, List<ValidationError>> errors = new HashMap<String,
+    private Map<String, List<ValidationError>> errors = new HashMap<String,  // Map holds String-ErrorType name, Value - list of errors assoc w that type
                 List<ValidationError>>();
 
 
