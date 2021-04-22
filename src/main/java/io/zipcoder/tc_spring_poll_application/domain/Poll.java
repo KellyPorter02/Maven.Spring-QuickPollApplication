@@ -9,10 +9,11 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
+@Table(name = "POLL")
 public class Poll {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "POLL_ID")
     private Long id;
 

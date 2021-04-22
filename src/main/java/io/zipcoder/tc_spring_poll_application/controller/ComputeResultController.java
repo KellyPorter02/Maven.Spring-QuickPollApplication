@@ -30,7 +30,7 @@ public class ComputeResultController {
         VoteResult voteResult = new VoteResult();
         Iterable<Vote> allVotes = voteRepository.findByPoll(pollId);
         // Algorithm to count votes
-        // a vote has and ID & and option, a poll option has an ID and it's value
+        // a vote has an ID & and option, a poll option has an ID and it's value
         // like option id1, value "Black Mirror"
         //
         int totalVotes = 0;
