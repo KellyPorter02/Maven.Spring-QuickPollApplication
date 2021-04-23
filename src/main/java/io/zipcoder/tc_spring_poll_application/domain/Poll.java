@@ -9,20 +9,20 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
-@Table(name = "POLL")
+@Table(name = "poll")
 public class Poll {
 
     @Id
     @GeneratedValue
-    @Column(name = "POLL_ID")
+    @Column(name = "pollId")
     private Long id;
 
-    @Column(name = "QUESTION")
+    @Column(name = "question")
     @NotEmpty
     private String question;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "POLL_ID")
+    @JoinColumn(name = "pollId")
     @OrderBy
     @Size(min = 2, max = 6)
     private Set<Option> options;

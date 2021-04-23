@@ -4,14 +4,15 @@ package io.zipcoder.tc_spring_poll_application.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "option")
 public class Option {
 
     @Id
     @GeneratedValue
-    @Column(name = "OPTION_ID")
+    @Column(name = "optionId")
     private Long id;
 
-    @Column(name = "OPTION_VALUE")
+    @Column(name = "optionValue")
     private String value;
 
 

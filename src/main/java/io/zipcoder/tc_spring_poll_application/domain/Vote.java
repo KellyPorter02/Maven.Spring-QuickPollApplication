@@ -3,15 +3,16 @@ package io.zipcoder.tc_spring_poll_application.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "vote")
 public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "VOTE_ID")
+    @Column(name = "voteId")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "OPTION_ID")
+    @JoinColumn(name = "optionId")
     private Option option;
 
     public Vote() {}
